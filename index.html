@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>EPHEC International Week</title>
+  </head>
+
+  <body>
+    <h1 style="width: 100%; text-align: center">EPHEC HuGau Mobile</h1>
+    <div style="display: flex">
+      <button style="flex-grow: 1" id="connect" type="button">Connect</button>
+      <button style="flex-grow: 1" id="disconnect" type="button">
+        Disconnect
+      </button>
+      <button style="flex-grow: 1" id="accelPermsButton" onclick="getAccel()">
+        Get Accelerometer Permissions
+      </button>
+    </div>
+
+    <div style="display: flex; width: 100%; justify-content: space-between">
+      <div style="flex-grow: 1">
+        <p>Logs:</p>
+        <div id="terminal" style="overflow-y: scroll; height: 100px"></div>
+      </div>
+      <div style="flex-grow: 1">
+        <div style="display: flex; justify-content: space-around">
+          <p>Incoming:</p>
+          <label class="switch">
+            <input type="checkbox" id="incoming" />
+            <span class="slider round"></span>
+          </label>
+          <p>OutComing:</p>
+          <label class="switch">
+            <input type="checkbox" id="outcoming" checked />
+            <span class="slider round"></span>
+          </label>
+          <p>ManualDirection:</p>
+          <label class="switch">
+            <input type="checkbox" id="mandir" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <form id="send-form">
+          <input id="input" type="text" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between">
+      <div class="speedslidecontainer">
+        <input
+          type="range"
+          min="-4"
+          max="4"
+          step="1"
+          id="speedslider"
+          class="speedslider"
+          onmouseup="endClickSpeed()"
+          onmousedown="startClickSpeed()"
+          ontouchend="endClickSpeed()"
+          ontouchstart="startClickSpeed()"
+        />
+      </div>
+      <p>Speed: <span id="speed">0</span> Angle: <span id="angle">0</span></p>
+      <div class="angleslidecontainer">
+        <input
+          type="range"
+          min="-50"
+          max="50"
+          step="1"
+          id="angleSlider"
+          class="angleslider"
+          onmouseup="endClick()"
+          onmousedown="startClick()"
+          ontouchend="endClick()"
+          ontouchstart="startClick()"
+        />
+      </div>
+    </div>
+    <div id="logo">
+      <span class="speedometer"></span>
+      <span class="needle"></span>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
