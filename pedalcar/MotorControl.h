@@ -14,7 +14,10 @@ private:
   bool targetDirection;                            // Sens cible
   bool isChangingDirection;                        // Indique si on est en train de changer de sens
   unsigned long lastDirectionChangeTime;           // Temps de la dernière transition
-  const unsigned long directionChangeDelay = 300;  // Délai (en ms) avant de changer de sens
+  const unsigned long directionChangeDelay = 1300;  // Délai (en ms) avant de changer de sens
+  int motor_max_speed;                        // Vitesse maximale du moteur
+  const int true_min_motor_speed = 36;              // La plus petite tension en pourcentage à laquelle le moteur se met à tourner
+  const int true_max_motor_speed = 100;             // La plus haute tension en pourcentage à laquelle le moteur se met à tourner
 
   void setDirection(bool forward);
 

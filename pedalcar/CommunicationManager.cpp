@@ -5,6 +5,8 @@ CommunicationManager::CommunicationManager(MotorControl& motorControl, ServoCont
 
 void CommunicationManager::begin() {
   COMMUNICATION_PORT.begin(9600);
+  COMMUNICATION_PORT.setTimeout(10); 
+  Serial.setTimeout(10); 
   Serial.println("Communication initialisée sur le " + getSerialPinInfo(COMMUNICATION_PORT) + ".");
   setMode(DEFAULT_MODE);
 }
@@ -39,7 +41,8 @@ void CommunicationManager::handleCommunication() {
 
   // Lire les commandes série (PC)
   if (Serial.available()) {
-    commandFromSerial = Serial.readStringUntil('\n');
+    //commandFromSerial = Serial.readStringUntil('\n');
+    commandFromSerial = Serial.readString();
     commandFromSerial.trim();
     commandFromSerial.toLowerCase();  // Convertir en minuscules pour être indépendant de la casse
 
@@ -56,7 +59,8 @@ void CommunicationManager::handleCommunication() {
 
   // Lire les commandes BLE
   if (currentMode == "BLE" && COMMUNICATION_PORT.available()) {
-    commandFromBLE = COMMUNICATION_PORT.readStringUntil('\n');
+    // commandFromBLE = COMMUNICATION_PORT.readStringUntil('\n');
+    commandFromBLE = COMMUNICATION_PORT.readString();
     commandFromBLE.trim();
     commandFromBLE.toLowerCase();  // Convertir en minuscules pour être indépendant de la casse
 

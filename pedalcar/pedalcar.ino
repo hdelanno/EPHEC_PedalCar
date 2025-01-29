@@ -73,6 +73,4 @@ void loop() {
 
   // Mettre à jour les actions du moteur (ramp-up progressif)
   motor.update();
-
-  delay(10);
 }
