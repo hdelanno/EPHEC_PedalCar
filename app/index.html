@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="styles.css" rel="stylesheet" />
+    <title>EPHEC Pedal Car</title>
+  </head>
+
+  <body>
+    <h3 id="title" style="width: 100%; text-align: center">
+      EPHEC HuGau Mobile
+    </h3>
+   <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+  <button style="flex-grow: 1" id="connect" type="button">Connect</button>
+  <button style="flex-grow: 1" id="disconnect" type="button" disabled>Disconnect</button>
+  
+  <!-- Wrapping the "Manual Direction" and switch in a container for better layout -->
+  <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center;">
+    <p style="margin: 0; line-height: 1.2; text-align: center;">Manual<br>Direction:</p> <!-- The text is now on two lines and centered -->
+    <label class="switch">
+      <input type="checkbox" id="mandir" checked />
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+
+
+    <!-- Zone vide où tu peux cliquer pour faire apparaître le joystick -->
+    <div id="click-area"></div>
+
+    <!-- Joystick -->
+    <div id="joystick-container">
+      <div id="joystick"></div>
+    </div>
+
+    <!-- Informations sur l'angle et la vitesse -->
+    <div id="info">
+      <span id="angle">Angle: 0°</span> | <span id="speed">Vitesse: 0</span>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
