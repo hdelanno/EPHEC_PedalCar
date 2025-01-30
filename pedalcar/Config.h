@@ -47,10 +47,10 @@
 // === Configuration du Moteur ===
 
 // Choisissez le nombre de vitesse : soit toutes (FULL) soit 4 vitesses (QUATRE_VITESSES). Commentez et décommentez ce qui vous intéresse
-#define QUATRE_VITESSES // = On a 4 vitesses (1 = vitesse min, 2 = 33% vitesse max, 3 = 66% vitesse max et 4 = vitesse max) ; FULL = on peut rentrer un pourcentage de la vitesse max (de 0 à 100)
-// #define FULL // = On a 5 vitesses (1, 2, 3, 4 et 5) ; FULL = on peut rentrer un pourcentage de la vitesse max (de 0 à 100)
+// #define QUATRE_VITESSES // = On a 4 vitesses (1 = vitesse min, 2 = 33% vitesse max, 3 = 66% vitesse max et 4 = vitesse max) ; FULL = on peut rentrer un pourcentage de la vitesse max (de 0 à 100)
+#define FULL // = On a 5 vitesses (1, 2, 3, 4 et 5) ; FULL = on peut rentrer un pourcentage de la vitesse max (de 0 à 100)
 
 // Choisissez la vitesse maximale du moteur (on commence à bouger à 36% et le maximum est à 100%)
-#define MOTOR_MAX_SPEED 40   // On commence à bouger à 36% et le maximum est à 100%. La valeur recommandée est 40
+#define MOTOR_MAX_SPEED 43   // On commence à bouger à 36% et le maximum est à 100%. La valeur recommandée est 40
 
 #endif

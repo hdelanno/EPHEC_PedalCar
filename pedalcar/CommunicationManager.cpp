@@ -1,7 +1,7 @@
 #include "CommunicationManager.h"
 
 CommunicationManager::CommunicationManager(MotorControl& motorControl, ServoControl& servoControl)
-  : motor(motorControl), servo(servoControl), currentMode(DEFAULT_MODE) {}
+  : motor(motorControl), servo(servoControl), currentMode(DEFAULT_MODE), lastBLETime(0) {}
 
 void CommunicationManager::begin() {
   COMMUNICATION_PORT.begin(9600);
@@ -67,7 +67,15 @@ void CommunicationManager::handleCommunication() {
     if (commandFromBLE.length() > 0) {
       Serial.println("Commande reçue via BLE : " + commandFromBLE);
       executeCommand(commandFromBLE);
+      lastBLETime = millis();  // Reset the timer whenever a new BLE command is received
     }
+  }
+
+  // Check for BLE timeout (if no command received within BLE_TIMEOUT period)
+  if (currentMode == "BLE" && millis() - lastBLETime >= BLE_TIMEOUT) {
+    Serial.println("Timeout BLE - Arrêt du véhicule.");
+    executeCommand("0");  // Reset motor and servo when BLE times out
+    lastBLETime = millis();  // Reset the timer after sending the "0" command
   }
 }
 

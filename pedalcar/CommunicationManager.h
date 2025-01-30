@@ -13,6 +13,10 @@ private:
   ServoControl& servo;
   String currentMode;
 
+  unsigned long lastBLETime; // Timestamp of the last BLE command received
+  const unsigned long BLE_TIMEOUT = 200; // Timeout for BLE communication in milliseconds
+
+
   void executeCommand(const String& command);
   String getSerialPinInfo(HardwareSerial& serialPort);
 
