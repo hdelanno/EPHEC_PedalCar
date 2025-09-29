@@ -97,7 +97,7 @@ void CommunicationManager::executeCommand(const String& command) {
     int startIndex = speedIndex + 1;
     int endIndex = (angleIndex != -1 && angleIndex > speedIndex) ? angleIndex : command.length();
     String speedValue = command.substring(startIndex, endIndex);
-    int speed = speedValue.toInt();
+    int speed = MOTOR_DIR * speedValue.toInt();
     motor.setSpeed(speed);
   }
 
